@@ -3,6 +3,7 @@ const Koa = require('koa');
 const { koaBody } = require('koa-body');
 const router = require('koa-router')();
 const https = require("https");
+const fs = require("fs");
 
 const app = new Koa();
 
@@ -108,4 +109,9 @@ router.post('/awake', (ctx) => {
 
 app.use(router.routes());
 
-app.listen(9096);
+const options = {
+  key: fs.readFileSync("./server.key", "utf8"),
+  cert: fs.readFileSync("./server.cert", "utf8")
+};
+https.createServer(options, app.callback()).listen(9096);
+// app.listen(9096);
