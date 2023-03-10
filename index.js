@@ -94,6 +94,13 @@ app.use(async (ctx, next) => {
   }
 })
 
+router.post('/awake', (ctx) => {
+  ctx.body = {
+    code: 0,
+    msg: 'service has been awaked'
+  }
+})
+
 
 app.use(router.routes());
 
