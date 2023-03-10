@@ -94,6 +94,10 @@ app.use(async (ctx, next) => {
   }
 })
 
+router.get('/', (ctx) => {
+  ctx.body = '666'
+})
+
 router.post('/awake', (ctx) => {
   ctx.body = {
     code: 0,
