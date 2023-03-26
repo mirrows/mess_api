@@ -108,11 +108,6 @@ router.post('/awake', (ctx) => {
 
 
 app.use(router.routes());
-
-const options = {
-  key: fs.readFileSync("./server.key", "utf8"),
-  cert: fs.readFileSync("./server.cert", "utf8")
-};
 // https.createServer(options, app.callback()).listen(9096);
 app.listen(9096);
 
